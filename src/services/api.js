@@ -1,4 +1,6 @@
-const API_BASE = "";
+// Di development: "" (kosong) → proxy Vite ke localhost:3001
+// Di production: Railway URL dari env VITE_API_URL
+const API_BASE = import.meta.env.VITE_API_URL || "";
 
 export const api = {
   // Store & WhatsApp

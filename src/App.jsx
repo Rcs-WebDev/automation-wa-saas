@@ -84,8 +84,9 @@ export function App() {
   useEffect(() => {
     loadAllData();
 
-    // Connect Socket.io
-    const socket = io("http://localhost:3001");
+    // Connect Socket.io — pakai env var di production, localhost di dev
+    const BACKEND_URL = import.meta.env.VITE_API_URL || "http://localhost:3001";
+    const socket = io(BACKEND_URL);
 
     socket.on("connect", () => {
       console.log("Connected to FlowWA realtime socket!");
